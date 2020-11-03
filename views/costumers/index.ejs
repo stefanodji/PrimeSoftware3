@@ -1,0 +1,19 @@
+<a href="/costumers/new">Add Costumer</a>
+
+<h2>Search Costumers</h2>
+
+<form action="/costumers" method="GET">
+    <label>Full Name</label>
+    <input type="text" name="fullName" value="<%= searchOptions.fullName %> ">
+    <div>
+        <button type="submit">Search</button>
+    </div>
+</form>
+<hr>
+<% costumers.forEach(costumer => { %>
+    <div><%= costumer.fullName %> </div>
+    <div><%= costumer.email %> </div> 
+    <div><%= costumer.phoneNumber %> </div>
+    <br>
+<%}); %> 
+
