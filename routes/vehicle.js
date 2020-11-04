@@ -65,6 +65,73 @@ router.post("/", async (req, res) =>{
     }
 });
 
+router.get("/:id", async (req, res) => { 
+    try {
+        const vehicle = await Vehicle.findById(req.params.id);
+        res.render("vehicles/show.ejs", {vehicle: vehicle});
+    } catch {
+        res.redirect("/vehicles");
+    }
+})
+
+router.get("/:id/edit", async (req, res) => {
+    try {
+        const vehicle = await Vehicle.findById(req.params.id);
+        res.render("vehicles/edit.ejs", { vehicle: vehicle});
+    } catch {
+        res.redirect("/vehicles");
+    }
+})
+
+router.put("/:id", async (req, res) => {
+    let vehicle;
+    try{
+        vehicle = await Vehicle.findById(req.params.id);
+        vehicle.vehicleType = req.body.vehicleType;
+        vehicle.brand = req.body.brand;
+        vehicle.model = req.body.model;
+        vehicle.constructionYear = req.body.constructionYear;
+        vehicle.fuelType = req.body.fuelType;
+        vehicle.numberOfSeats = req.body.numberOfSeats;
+        vehicle.pricePerDay = req.body.pricePerDay;
+        vehicle.count = req.body.count;
+
+        if(req.body.image != null && req.body.image != ""){
+            saveImage(vehicle, req.body.image);
+        }
+
+        await vehicle.save();
+        res.redirect(`/vehicles/${vehicle.id}`);
+    } catch{
+        if(vehicle == null){
+            res.redirect("/vehicles");
+        }
+        else{
+            res.render("vehicles/edit", {
+                vehicle: vehicle,
+                errorMessage: "Doslo je do greske u cuvanju podataka :/"
+            })
+        }
+        
+    }
+})
+
+router.delete("/:id", async (req, res) => { //Nikad GET za DELETE heheh
+    let vehicle;
+    try{
+        vehicle = await Vehicle.findById(req.params.id);
+        await vehicle.remove();
+        res.redirect("/vehicles/");
+    } catch{
+        if(vehicle == null){
+            res.redirect("/");
+        }
+        else{
+            res.redirect(`/vehicles/${req.params.id}`);
+        }
+        
+    }
+})
 
 function saveImage(vehicle, imageEncoded){
     if(imageEncoded == null) return

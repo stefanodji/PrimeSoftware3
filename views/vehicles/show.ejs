@@ -1,0 +1,17 @@
+<div><%= vehicle.vehicleType %> </div>
+    <div>
+        <img height="100" width="150" src="<%=vehicle.imagePath%>" alt="nema slike :/"> <%# Mozemo ImageName, ali mi zelimo ImagePath -> zato pravimo virtual varijablu u vehicle.js modelu %> 
+    </div>
+    <div><%= vehicle.brand %> </div> 
+    <div><%= vehicle.model %> </div>
+    <div><%= vehicle.constructionYear %> </div>
+    <div><%= vehicle.fuelType %> </div>
+    <div><%= vehicle.numberOfSeats %> </div>
+    <div><%= vehicle.pricePerDay %> </div>
+    <div><%= vehicle.count %>
+</div>
+<div>
+    <a href="/vehicles/<%= vehicle.id %>/edit">Edit</a>
+    <%- include("../partials/deleteForm.ejs",
+                {url: `/vehicles/${vehicle.id}`}) %> 
+</div>

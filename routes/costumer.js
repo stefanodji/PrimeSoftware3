@@ -52,7 +52,6 @@ router.get("/:id", async (req, res) => { //Ovo id mora posle new, u suprotnom ce
     } catch {
         res.redirect("/costumers");
     }
-    
 })
 
 router.get("/:id/edit", async (req, res) => {
