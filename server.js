@@ -10,6 +10,8 @@ const bodyParser = require("body-parser");
 
 const indexRouter = require("./routes/index");
 const costumerRouter = require("./routes/costumer");
+const vehicleRouter = require("./routes/vehicle");
+const rentalEvent = require("./routes/rentEvent.js");
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
@@ -31,7 +33,9 @@ db.once("open", () => console.log("Connected to the database"));
 
 
 app.use("/", indexRouter);
-app.use("/costumers", costumerRouter)
+app.use("/costumers", costumerRouter);
+app.use("/vehicles", vehicleRouter);
+app.use("/rentalEvents", rentalEvent);
 
 
 app.listen(3000);

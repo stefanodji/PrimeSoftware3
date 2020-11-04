@@ -1,0 +1,12 @@
+<h2>New Vehicle</h2>
+
+<form action="/vehicles" method="POST">
+    <div>
+        <%- include("_form_fields.ejs") %> 
+    </div>
+    <div>
+        <a href="/vehicles">Cancel</a>
+        <button type="submit">Create</button>
+    </div>
+</form>
+<%- include("../partials/errorMessage.ejs") %> 

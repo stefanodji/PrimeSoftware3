@@ -12,6 +12,11 @@ const costumerSchema = new mongoose.Schema({
     phoneNumber: {
         type: String,
         required: true
+    },
+    isVIP: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 })
 

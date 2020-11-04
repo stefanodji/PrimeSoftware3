@@ -2,7 +2,6 @@ const express = require("express");
 const Costumer = require("../models/costumer.js");
 const router = express.Router();
 
-const Author = require("../models/costumer.js");
 
 
 //All Costumers Route
