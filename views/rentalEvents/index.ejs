@@ -1,2 +1,28 @@
-<a href="/rentalEvents/new">New Rent</a>
+<h2>All rents</h2>
 
+<% allRents.forEach(rent => { %>
+<div>
+    <label >Total price:</label>
+    <input type="text" value="<%= rent.price%> $">
+</div>
+<div>
+    <img height="100px" height="150px" src="<%= rent.vehicle.imagePath %>" alt="nema slike :/">
+</div>
+<div>
+    <label >Name of the costumer</label>
+    <input type="text" value="<%= rent.costumer.fullName%>">
+</div>
+<div>
+    <label>Start date:</label>
+    <input type="text" value="<%= rent.startDate.toLocaleString()%>">
+</div>
+<div>
+    <label>End date:</label>
+    <input type="text" value="<%= rent.endDate.toLocaleString()%>">
+</div>
+<div>
+    <%- include("../partials/deleteForm.ejs",
+                {url: `/rentalEvents/${rent.id}`}) %> 
+</div>
+<hr>
+<% }) %> 

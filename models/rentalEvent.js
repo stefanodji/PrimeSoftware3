@@ -18,6 +18,16 @@ const rentalEventSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: "Costumer"
+    },
+    discount: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    price: {
+        type: Number,
+        required: true,
+        default: 0
     }
 })
 

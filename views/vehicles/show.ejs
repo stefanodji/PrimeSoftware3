@@ -11,6 +11,7 @@
     <div><%= vehicle.count %>
 </div>
 <div>
+    <a href="/rentalEvents/vehicle/<%= vehicle.id %>">Rent</a>
     <a href="/vehicles/<%= vehicle.id %>/edit">Edit</a>
     <%- include("../partials/deleteForm.ejs",
                 {url: `/vehicles/${vehicle.id}`}) %> 
