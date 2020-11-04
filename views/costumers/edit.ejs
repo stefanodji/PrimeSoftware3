@@ -1,0 +1,12 @@
+<h2>Edit Costumer</h2>
+
+<form action="/costumers/<%= costumer.id %>?_method=PUT" method="POST">
+    <div>
+        <%- include("_form_fields") %> 
+    </div>
+    <div>
+        <a href="/costumers">Cancel</a>
+        <button type="submit">Update</button>
+    </div>
+    
+</form>

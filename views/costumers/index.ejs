@@ -14,6 +14,12 @@
     <div><%= costumer.fullName %> </div>
     <div><%= costumer.email %> </div> 
     <div><%= costumer.phoneNumber %> </div>
+    <div>
+        <a href="/costumers/<%= costumer.id %>">View</a>
+        <a href="/costumers/<%= costumer.id %>/edit">Edit</a>
+        <%- include("../partials/deleteForm.ejs",
+                {url: `/costumers/${costumer.id}`}) %> 
+    </div>
     <br>
 <%}); %> 
 

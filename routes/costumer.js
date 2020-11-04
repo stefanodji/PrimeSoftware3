@@ -36,13 +36,71 @@ router.post("/", async (req, res) => {
     });
     try{
         const newCostumer = await costumer.save();
-        //res.redirect(`costumers/${newCostumer.id}`);
-        res.redirect("costumers");
+        res.redirect(`costumers/${newCostumer.id}`);
     } catch{
         res.render("costumers/new", {
             costumer: costumer,
             errorMessage: "Niste pravilno popunili polja"
         })
+    }
+})
+
+router.get("/:id", async (req, res) => { //Ovo id mora posle new, u suprotnom ce pomisliti da je new id hehe
+    try {
+        const costumer = await Costumer.findById(req.params.id);
+        res.render("costumers/show.ejs", {costumer: costumer});
+    } catch {
+        res.redirect("/costumers");
+    }
+    
+})
+
+router.get("/:id/edit", async (req, res) => {
+    try {
+        const costumer = await Costumer.findById(req.params.id);
+        res.render("costumers/edit.ejs", { costumer: costumer});
+    } catch {
+        res.redirect("/costumers");
+    }
+})
+
+router.put("/:id", async (req, res) => {
+    let costumer;
+    try{
+        costumer = await Costumer.findById(req.params.id);
+        costumer.fullName = req.body.fullName;
+        costumer.email = req.body.email;
+        costumer.phoneNumber = req.body.phoneNumber;
+        await costumer.save();
+        res.redirect(`/costumers/${costumer.id}`);
+    } catch{
+        if(costumer == null){
+            res.redirect("/costumers");
+        }
+        else{
+            res.render("costumers/edit", {
+                costumer: costumer,
+                errorMessage: "Doslo je do greske u cuvanju podataka :/"
+            })
+        }
+        
+    }
+})
+
+router.delete("/:id", async (req, res) => { //Nikad GET za DELETE heheh
+    let costumer;
+    try{
+        costumer = await Costumer.findById(req.params.id);
+        await costumer.remove();
+        res.redirect("/costumers/");
+    } catch{
+        if(costumer == null){
+            res.redirect("/");
+        }
+        else{
+            res.redirect(`/costumers/${req.params.id}`);
+        }
+        
     }
 })
 
