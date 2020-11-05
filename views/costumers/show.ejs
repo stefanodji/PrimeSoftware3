@@ -1,9 +1,12 @@
-<div><%= costumer.fullName %> </div>
-<div><%= costumer.email %> </div> 
-<div><%= costumer.phoneNumber %> </div>
-
-<div>
-    <a href="/costumers/<%= costumer.id %>/edit">Edit</a>
-    <%- include("../partials/deleteForm.ejs",
+<div class="carDivConteinerCostumer">
+    <div class="infoCostumerDiv">
+        <div>Full name: <span class="boldSpan"><%= costumer.fullName %></span></div>
+        <div>Email: <span class="boldSpan"><%= costumer.email %></span> </div> 
+        <div>Number:  <span class="boldSpan"><%= costumer.phoneNumber %></span></div>
+    </div>
+    <div class="buttonsDiv">
+        <a class="buttonSmall" href="/costumers/<%= costumer.id %>/edit">Edit</a>
+        <%- include("../partials/deleteForm.ejs",
                 {url: `/costumers/${costumer.id}`}) %> 
+    </div>
 </div>

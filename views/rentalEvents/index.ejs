@@ -1,28 +1,27 @@
-<h2>All rents</h2>
+<h2 class="naslovVehicle">All rents</h2>
 
 <% allRents.forEach(rent => { %>
-<div>
-    <label >Total price:</label>
-    <input type="text" value="<%= rent.price%> $">
+<div class="cardConteinerRent">
+    <div class="cardConteinerRentDeo">
+        <label style="font-size: 25px;">Total price: <span class="boldSpan"><%= rent.price %> $</span></label>
+    </div>
+    <div class="cardConteinerRentDeo">
+        <img height="100px" height="150px" src="<%= rent.vehicle.imagePath %>" alt="nema slike :/">
+    </div>
+    <div>
+        <div>
+            <label >Name of the costumer: <span class="boldSpan"><%= rent.costumer.fullName%></span></label>
+        </div>
+        <div>
+            <label>Start date: <span class="boldSpan"><%= rent.startDate.toLocaleString()%></span></label>
+        </div>
+        <div>
+            <label>End date: <span class="boldSpan"><%= rent.endDate.toLocaleString()%></span></label>
+        </div>
+    </div>
+    <div class="buttonsDiv">
+        <%- include("../partials/deleteForm.ejs",
+                    {url: `/rentalEvents/${rent.id}`}) %> 
+    </div>
 </div>
-<div>
-    <img height="100px" height="150px" src="<%= rent.vehicle.imagePath %>" alt="nema slike :/">
-</div>
-<div>
-    <label >Name of the costumer</label>
-    <input type="text" value="<%= rent.costumer.fullName%>">
-</div>
-<div>
-    <label>Start date:</label>
-    <input type="text" value="<%= rent.startDate.toLocaleString()%>">
-</div>
-<div>
-    <label>End date:</label>
-    <input type="text" value="<%= rent.endDate.toLocaleString()%>">
-</div>
-<div>
-    <%- include("../partials/deleteForm.ejs",
-                {url: `/rentalEvents/${rent.id}`}) %> 
-</div>
-<hr>
 <% }) %> 

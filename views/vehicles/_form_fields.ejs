@@ -1,51 +1,55 @@
-<label>Vehicle type</label>
-<select name="vehicleType" value="<%= vehicle.vehicleType %>">
-    <option value="luxury">luxury</option>
-    <option value="SUV">SUV</option>
-    <option value="economy">economy</option>
-    <option value="cargo">cargo</option>
-    <option value="estate">estate</option>
-</select>
+<div class="info">
+    <label>Vehicle type</label>
+    <select name="vehicleType" value="<%= vehicle.vehicleType %>">
+        <option value="luxury">luxury</option>
+        <option value="SUV">SUV</option>
+        <option value="economy">economy</option>
+        <option value="cargo">cargo</option>
+        <option value="estate">estate</option>
+    </select>
+</div>
 
-<div>
+<div class="info">
     <label>Brand:</label>
     <input type="text" name="brand" value="<%= vehicle.brand %>">
 </div>
 
-<div>
+<div class="info">
     <label>Model:</label>
     <input type="text" name="model" value="<%= vehicle.model %>">
 </div>
 
-<div>
+<div class="info">
     <label>Picture:</label>
     <input type="file" name="image" class="filepond">
 </div>
 
-<div>
+<div class="info">
     <label>Construction Year:</label>
     <input type="number" name="constructionYear" value="<%= vehicle.constructionYear %>">
 </div>
 
-<label>Fuel type:</label>
-<select name="fuelType" value="<%= vehicle.fuelType %> ">
-    <option value="petrol">petrol</option>
-    <option value="diesel">diesel</option>
-    <option value="hybrid">hybrid</option>
-    <option value="electric">electric</option>
-</select>
+<div class="info">
+    <label>Fuel type:</label>
+    <select name="fuelType" value="<%= vehicle.fuelType %> ">
+        <option value="petrol">petrol</option>
+        <option value="diesel">diesel</option>
+        <option value="hybrid">hybrid</option>
+        <option value="electric">electric</option>
+    </select>
+</div>
 
-<div>
+<div class="info">
     <label>Number of seats:</label>
     <input type="number" name="numberOfSeats" value="<%= vehicle.numberOfSeats %>">
 </div>
 
-<div>
+<div class="info">
     <label>Price per day:</label>
     <input type="number" name="pricePerDay" value="<%= vehicle.pricePerDay %>">
 </div>
 
-<div>
+<div class="info">
     <label>Count:</label>
     <input type="number" name="count" value="<%= vehicle.count %>">
 </div>

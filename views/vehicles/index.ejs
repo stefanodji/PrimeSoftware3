@@ -1,40 +1,64 @@
-<a href="/vehicles/new">Add Vehicle</a>
-<hr>
+<div class="bigButtonDiv">
+    <a class="bigButton" href="/vehicles/new">Add Vehicle</a>
+</div>
 
-<h2>Search Vehicles</h2>
 
-<form action="/vehicles" method="GET">
-    <label>Brand</label>
-    <input type="text" name="brand" value="<%= searchOptions.brand %>">
-    <label>Model</label>
-    <input type="text" name="model" value="<%= searchOptions.model %>">
-    <label>Fuel Type</label>
-    <input type="text" name="fuelType" value="<%= searchOptions.fuelType %>">
-    <label>Max Price Per Day</label>
-    <input type="number" name="pricePerDay" value="<%= searchOptions.pricePerDay %>">
-    <div>
-        <button type="submit">Search</button>
-    </div>
-</form>
-<hr>
+<div class="searchDiv">
+
+    <h2>Search Vehicles</h2>
+
+    <form class="form" action="/vehicles" method="GET">
+        <div class="searchParametarsDivConteiner">
+            <div class="searchParametarsDiv">
+                <label>Brand</label>
+                <input type="text" name="brand" value="<%= searchOptions.brand %>">
+            </div>
+            <div class="searchParametarsDiv">
+                <label>Model</label>
+                <input type="text" name="model" value="<%= searchOptions.model %>">
+            </div>
+            <div class="searchParametarsDiv">
+                <label>Fuel Type</label>
+                <input type="text" name="fuelType" value="<%= searchOptions.fuelType %>">
+            </div>
+            <div class="searchParametarsDiv">
+                <label>Max Price Per Day</label>
+                <input type="number" name="pricePerDay" value="<%= searchOptions.pricePerDay %>">
+            </div>
+        </div>
+        <div class="buttonSmallDiv">
+            <button class="buttonSmall" type="submit">Search</button>
+        </div>
+    </form>
+
+</div>
 
 <% vehicles.forEach(vehicle => { %>
-    <div><%= vehicle.vehicleType %> </div>
-    <div>
-        <img height="100" width="150" src="<%=vehicle.imagePath%>" alt="nema slike :/"> <%# Mozemo ImageName, ali mi zelimo ImagePath -> zato pravimo virtual varijablu u vehicle.js modelu %> 
+    <div class="carDivConteiner">
+        <div class="vehicleTypeDiv">
+            Vehicle type: <span class="boldSpan"><%= vehicle.vehicleType %></span>
+        </div>
+        <div class="imageInfoDiv">
+            <div class="imageDiv">
+                <img height="200" width="300" src="<%=vehicle.imagePath%>" alt="nema slike :/"> <%# Mozemo ImageName, ali mi zelimo ImagePath -> zato pravimo virtual varijablu u vehicle.js modelu %> 
+            </div>
+            <div class="infoDiv">
+                <div>Brand: <span class="boldSpan"><%= vehicle.brand %></span> </div> 
+                <div>Model: <span class="boldSpan"><%= vehicle.model %></span> </div>
+                <div>ConstructionYear: <span class="boldSpan"><%= vehicle.constructionYear %></span> </div>
+                <div>Fuel type: <span class="boldSpan"><%= vehicle.fuelType %></span> </div>
+                <div>Number of seats: <span class="boldSpan"><%= vehicle.numberOfSeats %></span> </div>
+                <div>Price per day: <span class="boldSpan"><%= vehicle.pricePerDay %></span> </div>
+                <div>Remains: <span class="boldSpan"><%= vehicle.count %></span> </div>
+            </div>
+            <div class="buttonsDiv">
+                <a class="buttonSmall" href="/vehicles/<%= vehicle.id %>">View</a>
+                <a class="buttonSmall" href="/vehicles/<%= vehicle.id %>/edit">Edit</a>
+                <%- include("../partials/deleteForm.ejs",
+                        {url: `/vehicles/${vehicle.id}`}) %> 
+            </div>
+        </div>
+        
     </div>
-    <div><%= vehicle.brand %> </div> 
-    <div><%= vehicle.model %> </div>
-    <div><%= vehicle.constructionYear %> </div>
-    <div><%= vehicle.fuelType %> </div>
-    <div><%= vehicle.numberOfSeats %> </div>
-    <div><%= vehicle.pricePerDay %> </div>
-    <div><%= vehicle.count %> </div>
-    <div>
-        <a href="/vehicles/<%= vehicle.id %>">View</a>
-        <a href="/vehicles/<%= vehicle.id %>/edit">Edit</a>
-        <%- include("../partials/deleteForm.ejs",
-                {url: `/vehicles/${vehicle.id}`}) %> 
-    </div>
-    <br>
+ 
 <%}); %> 

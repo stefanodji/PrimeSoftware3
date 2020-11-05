@@ -1,13 +1,18 @@
-<h2>New Costumer</h2>
+<h2 class="naslovVehicle">New Costumer</h2>
 
-<form action="/costumers" method="POST">
-    <div>
-        <%- include("_form_fields") %> 
-    </div>
-    <div>
-        <a href="/costumers">Cancel</a>
-        <button type="submit">Create</button>
-    </div>
-    
-</form>
-<%- include("../partials/errorMessage.ejs") %> 
+<div class="editConteiner">
+    <form action="/costumers" method="POST">
+        <div class="editConteinerInfo">
+            <div>
+                <%- include("_form_fields") %> 
+            </div>
+            <div class="buttonsDiv">
+                <a class="buttonSmall" href="/costumers">Cancel</a>
+                <button class="buttonSmall" type="submit">Create</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="errorMessage">
+    <%- include("../partials/errorMessage.ejs") %> 
+</div>

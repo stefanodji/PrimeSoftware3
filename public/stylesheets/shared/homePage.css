@@ -1,0 +1,32 @@
+.naslov{
+    font-size: 45px;
+    text-align: center;
+    margin: 60px auto 40px auto;
+}
+
+.podnaslov{
+    font-size: 30px;
+    text-align: center;
+}
+
+.bigButtonDiv{
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bigButton{
+    display: block;
+    border-radius: 40px;
+    padding: 10px 25px;
+    background-color: #ff8f44;
+    color: white;
+    text-decoration: none;
+}
+
+.bigButton:hover{
+    background-color: #d46921;
+    cursor: pointer;
+}
+

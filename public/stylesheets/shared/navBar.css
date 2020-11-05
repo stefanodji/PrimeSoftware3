@@ -1,0 +1,48 @@
+#nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(218, 218, 218);
+}
+
+.logoDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: 35px;
+    width: 30%;
+}
+
+.logoDiv > a > i:hover{
+    color: white;
+}
+
+.navAnchorTags{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    font-weight: 600;
+}
+
+.navAnchorTags > a{
+    display: flex;
+    text-decoration: none;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: all ease 0.2s;
+}
+
+.navAnchorTags > a:hover{
+    background-color: #ff8f44;
+    color: white;
+    cursor: pointer;
+}

@@ -1,12 +1,16 @@
-<h2>New Vehicle</h2>
+<h2 class="naslovVehicle">New Vehicle</h2>
 
-<form action="/vehicles" method="POST">
-    <div>
-        <%- include("_form_fields.ejs") %> 
-    </div>
-    <div>
-        <a href="/vehicles">Cancel</a>
-        <button type="submit">Create</button>
-    </div>
-</form>
+<div class="editConteiner">
+    <form action="/vehicles" method="POST">
+        <div class="editConteinerInfo">
+            <div>
+                <%- include("_form_fields.ejs") %> 
+            </div>
+            <div class="buttonsDiv">
+                <a class="buttonSmall" href="/vehicles">Cancel</a>
+                <button class="buttonSmall" type="submit">Create</button>
+            </div>
+        </div>
+    </form>
+</div>
 <%- include("../partials/errorMessage.ejs") %> 

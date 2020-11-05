@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import "shared/navBar.css";
+@import "shared/homePage.css";
+@import "shared/vehiclesPage.css";
+@import "shared/costumersPage.css";
+@import "shared/rentalEventsPage.css";
+
+:root{
+    font-family: 'Poppins', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", 'sans-serif';
+    color: rgb(19, 18, 18);
+}
+
+input, select{
+  padding: 10px 20px;
+  margin: 0px 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}

@@ -1,18 +1,26 @@
-<div><%= vehicle.vehicleType %> </div>
-    <div>
-        <img height="100" width="150" src="<%=vehicle.imagePath%>" alt="nema slike :/"> <%# Mozemo ImageName, ali mi zelimo ImagePath -> zato pravimo virtual varijablu u vehicle.js modelu %> 
+<div class="carDivConteiner">
+    <div class="vehicleTypeDiv">
+        Vehicle tupe: <span class="boldSpan"><%= vehicle.vehicleType %></span>
     </div>
-    <div><%= vehicle.brand %> </div> 
-    <div><%= vehicle.model %> </div>
-    <div><%= vehicle.constructionYear %> </div>
-    <div><%= vehicle.fuelType %> </div>
-    <div><%= vehicle.numberOfSeats %> </div>
-    <div><%= vehicle.pricePerDay %> </div>
-    <div><%= vehicle.count %>
-</div>
-<div>
-    <a href="/rentalEvents/vehicle/<%= vehicle.id %>">Rent</a>
-    <a href="/vehicles/<%= vehicle.id %>/edit">Edit</a>
-    <%- include("../partials/deleteForm.ejs",
-                {url: `/vehicles/${vehicle.id}`}) %> 
+    <div class="imageInfoDiv">
+        <div class="imageDiv">
+            <img height="100" width="150" src="<%=vehicle.imagePath%>" alt="nema slike :/"> <%# Mozemo ImageName, ali mi zelimo ImagePath -> zato pravimo virtual varijablu u vehicle.js modelu %> 
+        </div>
+        <div class="infoDiv">
+            <div>Brand: <span class="boldSpan"><%= vehicle.brand %></span> </div> 
+            <div>Model: <span class="boldSpan"><%= vehicle.model %></span> </div>
+            <div>ConstructionYear: <span class="boldSpan"><%= vehicle.constructionYear %></span> </div>
+            <div>Fuel type: <span class="boldSpan"><%= vehicle.fuelType %></span> </div>
+            <div>Number of seats: <span class="boldSpan"><%= vehicle.numberOfSeats %></span> </div>
+            <div>Price per day: <span class="boldSpan"><%= vehicle.pricePerDay %></span> </div>
+            <div>Remains: <span class="boldSpan"><%= vehicle.count %></span> </div>
+        </div>
+
+        <div class="buttonsDiv">
+            <a class="buttonSmall" href="/rentalEvents/vehicle/<%= vehicle.id %>">Rent</a>
+            <a class="buttonSmall" href="/vehicles/<%= vehicle.id %>/edit">Edit</a>
+            <%- include("../partials/deleteForm.ejs",
+                        {url: `/vehicles/${vehicle.id}`}) %> 
+        </div>
+    </div>
 </div>

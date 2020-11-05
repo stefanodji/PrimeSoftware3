@@ -1,40 +1,48 @@
-<h2>New Rent</h2>
+<h2 class="naslovVehicle">New Rent</h2>
 
-<label>Car that's rented:</label>
-<img height="100" width="150" src="<%=vehicle.imagePath%>" alt="nema slike :/">
+<div class="editConteiner">
+    <div class="editConteinerInfo">
+        <div class="info">
+            <div>
+                <label>Car that's rented:</label>
+            </div>
+            <div>
+                <img height="100" width="150" src="<%=vehicle.imagePath%>" alt="nema slike :/">
+            </div>
+        </div>
 
-<br>
-<br>
+        <form action="/rentalEvents/" method="POST">
+        <div class="info">
+            <label type="text">Rented by:</label>
+        </div>
 
-<form action="/rentalEvents/" method="POST">
-<div>
-    <label type="text">Rented by:</label>
+        <div class="info">
+            <label type="text">Choose costumer:</label>
+            <select name="chooseCostumer">
+                <% costumers.forEach(costumer => {%>
+                    <option value="<%= costumer.id %>"> <%= costumer.fullName %> </option>
+            <% }) %> 
+            </select>
+        </div>
+
+        <input style="display: none;" type="text" name="idVehicle" value="<%= vehicle.id %>"></input>
+
+        <div class="info">
+            <label>Start date and time:</label>
+            <input type="date" name="startDate">
+        </div>
+
+        <div class="info">
+            <label>End date and time:</label>
+            <input type="date" name="endDate">
+        </div>
+
+        <div class="buttonsDiv">
+            <button class="buttonSmall" type="submit">Rent</button>
+            <a class="buttonSmall" href="/vehicles/<%= vehicle.id %>">Cancel</a>
+        </div>
+
+        </form>
+    </div>
 </div>
-
-<div>
-    <label type="text">Choose costumer -></label>
-    <select name="chooseCostumer">
-        <% costumers.forEach(costumer => {%>
-            <option value="<%= costumer.id %>"> <%= costumer.fullName %> </option>
-    <% }) %> 
-    </select>
-</div>
-
-<input style="display: none;" type="text" name="idVehicle" value="<%= vehicle.id %>"></input>
-
-<div>
-    <label>Start date and time:</label>
-    <input type="date" name="startDate">
-</div>
-
-<div>
-    <label>End date and time:</label>
-    <input type="date" name="endDate">
-</div>
-
-<button type="submit">Rent</button>
-<a href="/vehicles/<%= vehicle.id %>">Cancel</a>
-
-</form>
-
 <%- include("../partials/errorMessage.ejs") %> 

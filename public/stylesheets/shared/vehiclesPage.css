@@ -1,0 +1,150 @@
+.searchDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    border: solid #ff8f44 2px;
+    margin: auto 30px auto 30px;
+    background-color: rgb(218, 218, 218);
+}
+
+.searchDiv > h2{
+    margin: 15px auto;
+}
+
+.buttonSmallDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto;
+}
+
+.buttonSmall{
+    display: block;
+    border-radius: 40px;
+    padding: 5px 15px;
+    background-color: #ff8f44;
+    color: white;
+    text-decoration: none;
+    border: none;
+    margin: auto 10px;
+}
+
+.buttonSmall:hover{
+    background-color: #d46921;
+    cursor: pointer;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchParametarsDivConteiner{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.searchParametarsDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto 20px 20px 20px;
+}
+
+.searchParametarsDiv > label{
+    display: block;
+}
+
+.searchParametarsDiv > input{
+    display: block;
+}
+
+.carDivConteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid rgb(218, 218, 218) 2px;
+    margin: 20px 10px;
+    border-radius: 20px;
+}
+
+.vehicleTypeDiv{
+    text-align: center;
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+.imageInfoDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.infoDiv{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.buttonsDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 2;
+    margin: 20px auto;
+}
+
+.boldSpan{
+    font-weight: 600;
+}
+
+.naslovVehicle{
+    margin: 40px auto;
+    text-align: center;
+}
+
+.editConteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid #ff8f44 2px;
+    border-radius: 20px;
+    margin: auto 15% 25px 15%;
+}
+
+.editConteinerInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info{
+    margin: 20px auto;
+    text-align: center;
+}
+
+.infoImageDrop{
+    width: 400px;
+    height: 300px;
+
+}
+
+.imageDrop{
+    height: 200px;
+    width: 300px;
+}

@@ -1,25 +1,36 @@
-<a href="/costumers/new">Add Costumer</a>
-<hr>
-<h2>Search Costumers</h2>
+<div class="bigButtonDiv">
+    <a class="bigButton" href="/costumers/new">Add Costumer</a>
+</div>
 
-<form action="/costumers" method="GET">
-    <label>Full Name</label>
-    <input type="text" name="fullName" value="<%= searchOptions.fullName %>">
-    <div>
-        <button type="submit">Search</button>
-    </div>
-</form>
-<hr>
+<div class="searchDiv">
+    <h2>Search Costumers</h2>
+
+    <form class="form" action="/costumers" method="GET">
+        <div class="searchParametarsDivConteiner">
+            <div class="searchParametarsDiv">
+                <label>Full Name</label>
+                <input type="text" name="fullName" value="<%= searchOptions.fullName %>">
+            </div>
+        </div>
+        <div class="buttonSmallDiv">
+            <button class="buttonSmall" type="submit">Search</button>
+        </div>
+    </form>
+</div>
+
 <% costumers.forEach(costumer => { %>
-    <div><%= costumer.fullName %> </div>
-    <div><%= costumer.email %> </div> 
-    <div><%= costumer.phoneNumber %> </div>
-    <div>
-        <a href="/costumers/<%= costumer.id %>">View</a>
-        <a href="/costumers/<%= costumer.id %>/edit">Edit</a>
-        <%- include("../partials/deleteForm.ejs",
-                {url: `/costumers/${costumer.id}`}) %> 
+    <div class="carDivConteinerCostumer">
+        <div class="infoCostumerDiv">
+            <div>Full name: <span class="boldSpan"><%= costumer.fullName %></span></div>
+            <div>Email: <span class="boldSpan"><%= costumer.email %></span> </div> 
+            <div>Number:  <span class="boldSpan"><%= costumer.phoneNumber %></span></div>
+        </div>
+        <div class="buttonsDiv">
+            <a class="buttonSmall" href="/costumers/<%= costumer.id %>">View</a>
+            <a class="buttonSmall" href="/costumers/<%= costumer.id %>/edit">Edit</a>
+            <%- include("../partials/deleteForm.ejs",
+                    {url: `/costumers/${costumer.id}`}) %> 
+        </div>
     </div>
-    <br>
 <%}); %> 
 

@@ -1,12 +1,15 @@
-<h2>Edit Costumer</h2>
+<h2 class="naslovVehicle">Edit Costumer</h2>
 
-<form action="/costumers/<%= costumer.id %>?_method=PUT" method="POST">
-    <div>
-        <%- include("_form_fields") %> 
-    </div>
-    <div>
-        <a href="/costumers/<%= costumer.id %>">Cancel</a>
-        <button type="submit">Update</button>
-    </div>
-    
-</form>
+<div class="editConteiner">
+    <form action="/costumers/<%= costumer.id %>?_method=PUT" method="POST">
+        <div class="editConteinerInfo">
+            <div>
+                <%- include("_form_fields") %> 
+            </div>
+            <div class="buttonsDiv">
+                <a class="buttonSmall" href="/costumers/<%= costumer.id %>">Cancel</a>
+                <button class="buttonSmall" type="submit">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
